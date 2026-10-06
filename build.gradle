@@ -1,0 +1,42 @@
+buildscript {
+  repositories {
+    mavenCentral()
+    google()
+    gradlePluginPortal()
+  }
+
+  dependencies {
+    classpath libs.gradlePlugin.android
+    classpath libs.gradlePlugin.kotlin
+    classpath libs.gradlePlugin.japicmp
+    classpath libs.gradlePlugin.mavenPublish
+    classpath libs.gradlePlugin.dokka
+    classpath libs.compatPlugin
+    classpath libs.spotlessPlugin
+  }
+}
+
+subprojects {
+  repositories {
+    mavenCentral()
+    google()
+  }
+
+  apply plugin: 'com.diffplug.spotless'
+  spotless {
+    kotlin {
+      ktfmt(libs.ktfmt.get().version).googleStyle()
+      target('**/*.kt')
+    }
+  }
+
+  tasks.withType(Test) {
+    testLogging {
+      events "failed"
+      exceptionFormat "full"
+      showExceptions true
+      showStackTraces true
+      showCauses true
+    }
+  }
+}

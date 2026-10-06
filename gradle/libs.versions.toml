@@ -1,0 +1,31 @@
+[versions]
+agp = "9.4.1"
+androidTools = "32.4.1" # Update this values in sync with agp.
+kotlin = "2.4.20"
+autoService = "1.1.1"
+minSdk = "14"
+compileSdk = "36"
+
+[libraries]
+gradlePlugin-android = { module = "com.android.tools.build:gradle", version.ref = "agp" }
+gradlePlugin-kotlin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
+gradlePlugin-dokka = "org.jetbrains.dokka:dokka-gradle-plugin:2.2.0"
+gradlePlugin-japicmp = "me.champeau.gradle:japicmp-gradle-plugin:0.4.6"
+gradlePlugin-mavenPublish = "com.vanniktech:gradle-maven-publish-plugin:0.37.0"
+compatPlugin = "com.gradleup.tapmoc:tapmoc-gradle-plugin:0.4.2"
+
+annotations = "org.jetbrains:annotations:26.1.0"
+auto-service = { module = "com.google.auto.service:auto-service", version.ref = "autoService" }
+auto-annotations = { module = "com.google.auto.service:auto-service-annotations", version.ref = "autoService" }
+
+lint-core = { module = "com.android.tools.lint:lint", version.ref = "androidTools" }
+lint-api = { module = "com.android.tools.lint:lint-api", version.ref = "androidTools" }
+lint-checks = { module = "com.android.tools.lint:lint-checks", version.ref = "androidTools" }
+lint-tests = { module = "com.android.tools.lint:lint-tests", version.ref = "androidTools" }
+
+junit = "junit:junit:4.13.2"
+assertk = "com.willowtreeapps.assertk:assertk:0.28.1"
+robolectric = "org.robolectric:robolectric:4.17"
+
+spotlessPlugin = "com.diffplug.spotless:spotless-plugin-gradle:8.10.3"
+ktfmt = "com.facebook:ktfmt:0.64"

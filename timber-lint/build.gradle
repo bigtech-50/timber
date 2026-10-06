@@ -1,0 +1,23 @@
+apply plugin: 'org.jetbrains.kotlin.jvm'
+apply plugin: 'org.jetbrains.kotlin.kapt'
+apply plugin: 'com.android.lint'
+apply plugin: 'com.gradleup.tapmoc'
+
+tapmoc {
+  java(17)
+}
+
+lint {
+  baseline = file("lint-baseline.xml")
+}
+
+dependencies {
+  compileOnly libs.lint.api
+  compileOnly libs.lint.checks
+  compileOnly libs.auto.annotations
+  kapt libs.auto.service
+  testImplementation libs.junit
+  testImplementation libs.lint.core
+  testImplementation libs.lint.tests
+  testImplementation libs.junit
+}
